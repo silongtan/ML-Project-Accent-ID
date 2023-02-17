@@ -9,7 +9,7 @@ for file in filename:
     wav = filepath+file
     y, sr = librosa.load(wav, sr=16000)
     mfcc = librosa.feature.mfcc(y, sr=16000)
-    vector = mfcc.mean(1)#平均之后的特征向量
+    vector = mfcc.mean(1) #characteristic vector after mean
     datasets.append(vector)
 
 #print(datasets)
@@ -17,7 +17,9 @@ for file in filename:
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 
-X = datasets#二维
+#2D
+X = datasets
+#Y axis for labeling
 y = ['普通话', '普通话', '普通话', '普通话', '普通话', '普通话', '普通话', '普通话', '普通话', '普通话', '普通话', '普通话', '普通话', '普通话', '普通话','北京', '北京', '北京', '北京', '北京', '北京', '北京', '北京','东北', '东北', '东北', '东北', '东北', '东北', '东北', '东北','粤语', '粤语', '粤语', '粤语', '粤语', '粤语', '粤语', '粤语','江浙', '江浙', '江浙', '江浙', '江浙', '江浙', '江浙', '山东', '山东', '山东', '山东', '山东', '山东', '山东','云贵川', '云贵川', '云贵川', '云贵川', '云贵川', '云贵川', '云贵川','天津', '天津', '天津', '天津', '天津', '天津', '天津', '天津','西北','西北','西北','西北', '西北','西北', '西北']
 
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = 0.3)
