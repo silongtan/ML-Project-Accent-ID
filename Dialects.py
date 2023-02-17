@@ -3,7 +3,7 @@ import os
 import numpy
 
 datasets = []
-filepath = "C:/Users/frank/OneDrive/Documents/AccentID/Database/"
+filepath = "/Database/"
 filename= os.listdir(filepath)
 for file in filename:
     wav = filepath+file
